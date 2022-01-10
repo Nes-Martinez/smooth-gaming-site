@@ -6,6 +6,12 @@ const app = express();
 
 app.use(express.json());
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// auth and api routes
+app.use("/api", require("./routes"));
+
 const syncDB = () => db.sync();
 
 const PORT = process.env.PORT;

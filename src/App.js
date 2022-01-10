@@ -1,12 +1,17 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Home from "./components/home";
 
 function App() {
   return (
-    <div className="App">
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
