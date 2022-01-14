@@ -8,25 +8,25 @@ async function seed() {
   const products = await Promise.all([
     Product.create({
       name: "Greak: Memories of Azure",
-      imageUrl: "/img/greak.jpg",
+      imageUrl: "/images/greak.jpg",
       description: "Lovely classic game with sprites.",
       price: 1499,
     }),
     Product.create({
       name: "warriOrb",
-      imageUrl: "/img/switchGame.png",
+      imageUrl: "/images/switchGame.png",
       description: "Fun platformer!",
       price: 1499,
     }),
     Product.create({
       name: "Hob",
-      imageUrl: "/img/switchGame.png",
+      imageUrl: "/images/switchGame.png",
       description: "Beautiful pixelated Souls platformer.",
       price: 1499,
     }),
     Product.create({
       name: "Hollow Knight",
-      imageUrl: "/img/switchGame.png",
+      imageUrl: "/images/switchGame.png",
       description: "The pinnacle of indie gaming!",
       price: 1499,
     }),
