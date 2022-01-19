@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { getProducts as listProducts } from "../redux/products";
 
@@ -29,6 +30,7 @@ const Products = () => {
                   </TextWrap>
                 </ProductInfo>
               </ProductImg>
+              <Link to={`/products/${product.id}`}>View</Link>
             </ProductCard>
           ))}
       </ProductsWrapper>
@@ -75,13 +77,20 @@ const ProductsWrapper = styled.div`
 `;
 
 const TextWrap = styled.div`
+  background: #000080;
   display: flex;
   align-items: center;
   position: absolute;
   top: 226px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
 
   @media screen and (max-width: 868px) {
-    top: 400px;
+    top: 40px;
+
+    &:hover {
+      filter: brightness(100%);
+    }
   }
 `;
 const ProductImg = styled.div`
@@ -96,6 +105,7 @@ const ProductImg = styled.div`
     filter: brightness(100%);
   }
 `;
+
 const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -108,8 +118,8 @@ const ProductInfo = styled.div`
 `;
 
 const ProductTitle = styled.div`
-  font-weight: 400;
-  font-size: 4 rem;
-  margin-left: 0.5rem;
-  color: red;
+  font-weight: 700;
+  font-size: 5 rem;
+  margin-left: 0.1rem;
+  color: #fff;
 `;

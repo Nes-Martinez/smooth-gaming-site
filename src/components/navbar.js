@@ -38,6 +38,16 @@ const Navbar = () => {
           >
             ALL GAMES
           </NavLink>
+          <NavLink
+            to="products"
+            smooth={true}
+            duration={500}
+            spy={true}
+            exact="true"
+            offset={-80}
+          >
+            ALL GAMES
+          </NavLink>
         </NavMenu>
       </NavBarContainer>
     </Nav>
@@ -47,12 +57,12 @@ const Navbar = () => {
 export default Navbar;
 
 const Nav = styled.nav`
-  background: ${({ scrollNav }) => (scrollNav ? "#e233f" : "transparent")};
+  background: ${({ scrollNav }) => (scrollNav ? "#000080" : "transparent")};
   height: 80px;
   margin-top: -80px;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem calc((100vw - 1300px) / 2);
+  padding: 3rem calc((100vw - 1300px) / 2);
   top: 0;
   z-index: 10;
   position: sticky;
@@ -63,7 +73,7 @@ export const NavBarContainer = styled.div`
   justify-content: space-between;
   z-index: 1;
   width: 100%;
-  padding: 0 24px;
+  padding: 0 20px 0 100px;
   max-width: 1100px;
 `;
 
@@ -83,7 +93,7 @@ const NavLink = styled(LinkS)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: 20
+  font-size: 20;
   padding: 0 1rem;
   height: 100&;
   cursor: pointer;

@@ -14,7 +14,7 @@ async function seed() {
     }),
     Product.create({
       name: "warriOrb",
-      imageUrl: "/images/switchGame.png",
+      imageUrl: "/images/warriorb.jpg",
       description: "Fun platformer!",
       price: 1499,
     }),
