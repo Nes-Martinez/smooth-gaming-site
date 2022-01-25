@@ -30,6 +30,10 @@ const Product = db.define("product", {
     type: Sequelize.STRING,
     defaultValue: "/img/switchGame.png",
   },
+  genre: {
+    type: Sequelize.ARRAY(Sequelize.TEXT),
+    defaultValue: ["action", "roleplaying"],
+  },
 });
 
 module.exports = Product;

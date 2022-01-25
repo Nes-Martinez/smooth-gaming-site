@@ -8,11 +8,9 @@ import Subsection from "./subsection";
 const Home = () => {
   return (
     <div>
-      <Navbar />
       <Hero />
       <Subsection />
       <Products />
-      <Footer />
     </div>
   );
 };

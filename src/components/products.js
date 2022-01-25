@@ -12,7 +12,14 @@ const Products = () => {
   //   const { products } = productDetails;
 
   useEffect(() => {
-    dispatch(listProducts());
+    let isMounted = true;
+    if (isMounted) {
+      dispatch(listProducts());
+    }
+
+    return () => {
+      isMounted = false;
+    };
   }, [dispatch]);
 
   return (
@@ -23,14 +30,17 @@ const Products = () => {
           products.map((product) => (
             <ProductCard key={product.id}>
               <ProductImg>
-                <img className="main" src={product.imageUrl} />
+                <img
+                  className="mainGame"
+                  alt={product.name}
+                  src={product.imageUrl}
+                />
                 <ProductInfo>
-                  <TextWrap>
+                  <TextWrap to={`/products/${product.id}`}>
                     <ProductTitle>{product.name}</ProductTitle>
                   </TextWrap>
                 </ProductInfo>
               </ProductImg>
-              <Link to={`/products/${product.id}`}>View</Link>
             </ProductCard>
           ))}
       </ProductsWrapper>
@@ -42,24 +52,36 @@ export default Products;
 
 const ProductsContainer = styled.div`
   min-height: 100vh;
-  padding: 5rem calc((100vw - 1300px) / 2);
+  padding: 2rem calc((100vw - 1300px) / 2);
   /* background: blue; */
   color: #fff;
+  @media screen and (max-width: 768px) {
+    padding: 0.1rem calc((100vw - 1300px) / 2);
+  }
 `;
+
 const ProductCard = styled.div`
   line-height: 2;
+  background: #f4f4f4;
   width: 100%;
   height: auto;
   position: relative;
   border-radius: 10px;
   transition: 0.2s escape;
+  padding-bottom: 15px;
+
+  &:hover {
+    transform: scale(1.03);
+  }
 `;
+
 const ProductsHeading = styled.div`
   font-size: clamp(1.2rem, 45vw, 3rem);
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   color: #000;
 `;
+
 const ProductsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -76,14 +98,14 @@ const ProductsWrapper = styled.div`
   }
 `;
 
-const TextWrap = styled.div`
+const TextWrap = styled(Link)`
   background: #000080;
   display: flex;
   align-items: center;
-  position: absolute;
   top: 226px;
   padding: 10px 10px 10px 10px;
-  border-radius: 10px;
+  border-radius: 5px;
+  filter: brightness(100%);
 
   @media screen and (max-width: 868px) {
     top: 40px;
@@ -93,12 +115,12 @@ const TextWrap = styled.div`
     }
   }
 `;
+
 const ProductImg = styled.div`
   height: 100%;
   max-width: 100%;
   position: relative;
-  border-radius: 10px;
-  filter: brightness(70%);
+  border-radius: 5px;
   transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   &:hover {
@@ -109,7 +131,7 @@ const ProductImg = styled.div`
 const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 0 2rem;
 
   @media screen and (max-width: 280px) {

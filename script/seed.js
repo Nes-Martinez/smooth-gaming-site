@@ -11,24 +11,28 @@ async function seed() {
       imageUrl: "/images/greak.jpg",
       description: "Lovely classic game with sprites.",
       price: 1499,
+      genre: ["metroidvania", "platformer"],
     }),
     Product.create({
       name: "warriOrb",
       imageUrl: "/images/warriorb.jpg",
       description: "Fun platformer!",
       price: 1499,
+      genre: ["sidescroller", "platformer"],
     }),
     Product.create({
       name: "Hob",
-      imageUrl: "/images/switchGame.png",
+      imageUrl: "/images/hob.jpg",
       description: "Beautiful pixelated Souls platformer.",
       price: 1499,
+      genre: ["hack-n-slash", "platformer"],
     }),
     Product.create({
       name: "Hollow Knight",
-      imageUrl: "/images/switchGame.png",
+      imageUrl: "/images/hollowknight.jpg",
       description: "The pinnacle of indie gaming!",
       price: 1499,
+      genre: ["metroidvania", "platformer"],
     }),
   ]);
 

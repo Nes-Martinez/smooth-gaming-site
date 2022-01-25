@@ -16,7 +16,14 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", changeNav);
+    let isMounted = true;
+    if (isMounted) {
+      window.addEventListener("scroll", changeNav);
+    }
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // const toggleHome = () => {
