@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { SRLWrapper } from "simple-react-lightbox";
+import image from "../images/hollowknightbanner.jpg";
+import Gamehero from "./gamehero";
 
 import { getSingleProducts as listProduct } from "../redux/products";
 
@@ -12,6 +15,8 @@ const SingleProduct = () => {
   const product = useSelector((state) => state.getSingleProduct);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     let isMounted = true;
     if (isMounted) {
       dispatch(listProduct(id));
@@ -22,9 +27,9 @@ const SingleProduct = () => {
   }, [dispatch, id]);
 
   return (
-    <>
-      <div>Name: {product.name}</div>
-      <img src={product.imageUrl} />
+    <ProductContainer>
+      <Gamehero image={image} name={product.name} />
+      <div id="images">Name: {product.name}</div>
       {product.genre && <div>Genres: {product.genre.join(", ")}</div>}
       <SRLWrapper>
         <a href="https://img-eshop.cdn.nintendo.net/i/208c3efdf8bf7cb5ba1f2154f5508d97af71b7853dc8e7eff302d3b1804bb178.jpg">
@@ -46,8 +51,23 @@ const SingleProduct = () => {
           />
         </a>
       </SRLWrapper>
-    </>
+    </ProductContainer>
   );
 };
 
 export default SingleProduct;
+
+const ProductContainer = styled.div`
+  background: #fff;
+  margin-top: 80px;
+  position: relative;
+`;
+
+const HeroWrapper = styled.div`
+  background: red;
+  display: flex;
+`;
+
+const HeroContent = styled.div`
+  z-index: 3;
+`;

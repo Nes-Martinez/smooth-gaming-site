@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Video from "../videos/videogame.mp4";
 import { Link as LinkS } from "react-scroll";
 
-const Hero = () => {
+const Gamehero = ({ image, name }) => {
   const [hover, setHover] = useState(false);
 
   const onHover = () => {
@@ -13,42 +12,38 @@ const Hero = () => {
   return (
     <HeroContainer>
       <HeroBG>
-        <VideoBG src={Video} type="video/mp4" autoPlay loop muted playsInline />
+        <Img className="bannerGame" src={image} alt="Hollow Knight" />
       </HeroBG>
       <HeroContent>
         <HeroItems>
-          <HeroH1>INDIE SWITCH</HeroH1>
-          <HeroH2> Una carta de amor</HeroH2>
-          <HeroP>Dedicado al sistema más inconvencional...</HeroP>
-          <BtnWrapper>
-            <MainButton
-              to="products"
-              onMouseEnter={onHover}
-              onMouseLeave={onHover}
-              smooth={true}
-              duration={500}
-              spy={true}
-              exact="true"
-              offset={-80}
-            >
-              Ver Los Juegos
-            </MainButton>
-          </BtnWrapper>
+          <HeroH1>{name}</HeroH1>
+          <SubButton
+            to="images"
+            onMouseEnter={onHover}
+            onMouseLeave={onHover}
+            smooth={true}
+            duration={500}
+            spy={true}
+            exact="true"
+            offset={-80}
+          >
+            Leér Mas
+          </SubButton>
         </HeroItems>
       </HeroContent>
     </HeroContainer>
   );
 };
 
-export default Hero;
+export default Gamehero;
 
 const HeroContainer = styled.div`
-  background: #0c0c0c;
+  background: red;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 110vh;
-  text-align: right;
+  height: clamp(10rem, 95vw, 75rem);
+  text-align: center;
   padding: 0 1rem;
   margin-top: -80px;
   position: relative;
@@ -78,20 +73,11 @@ const HeroBG = styled.div`
   right: 0;
   left: 0;
   width: 100%;
-  height: 100%;
   overflow: hidden;
-`;
-
-const VideoBG = styled.video`
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
 `;
 
 const HeroContent = styled.div`
   z-index: 3;
-  height: calc(100vh - 80px);
   max-height: 100%;
   padding: 0rem calc((100vw - 1300 px) / 2);
 `;
@@ -100,9 +86,9 @@ const HeroItems = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: right;
-  text-align: right;
-  height: 100vh;
+  align-items: center;
+  text-align: center;
+  height: clamp(2.5rem, 95vw, 75rem);
   max-height: 100%;
   padding: 0;
   color: #fff;
@@ -116,49 +102,38 @@ const HeroH1 = styled.h1`
   letter-spacing: 10px;
   padding: 0 1rem;
   font-weight: 700;
-  text-align: right;
+  text-align: center;
 `;
 
-const HeroH2 = styled.h2`
-  font-size: clamp(1.5rem, 8vw, 2.7rem);
-  margin-bottom: 1rem;
-  letter-spacing: 3px;
-  padding: 0 1rem;
-  font-weight: 400;
-  text-align: right;
+const Img = styled.img`
+  object-fit: cover;
+  width: 100%;
+  display: block;
+  margin: auto;
+  padding-right: 0;
 `;
 
-const HeroP = styled.p`
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  margin-bottom: 2rem;
-  font-weight: 200;
-  padding: 0 1rem;
-  text-align: right;
-`;
-
-const BtnWrapper = styled.div`
-  margin-top: 32px;
-  align-items: right;
-`;
-
-const MainButton = styled(LinkS)`
-  border-radius: 40px;
-  background: #0b2838;
+const SubButton = styled(LinkS)`
+  border-radius: 30px;
+  width: clamp(10rem, 10vw, 12rem);
+  max-width: 250px;
+  background: #ffffff;
   white-space: nowrap;
-  padding: 18px 40px;
-  color: #fffff;
-  font-size: 20px;
-  font-weight: 500;
+  text-decoration: none;
+  padding: 15px 35px;
+  color: #0b2838;
+  font-size: 16px;
+  font-weight: 600;
   outline: none;
   border: none;
   cursor: pointer;
-  justify-content: right;
-  align-items: right;
+  justify-content: center;
+  align-items: center;
   transition: all 0.2s ease-in-out;
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #ffffff;
-    color: #0b2838;
+    background: yellow;
+    color: #ffffff;
   }
 `;

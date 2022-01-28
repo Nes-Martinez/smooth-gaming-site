@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 import { animateScroll as scroll } from "react-scroll";
+import { BsController } from "react-icons/bs";
 
 const Navbar = () => {
   const [scrollNav, setScrollNav] = useState(false);
+  const [textNav, settextNav] = useState(false);
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -15,10 +17,19 @@ const Navbar = () => {
     }
   };
 
+  const changeText = () => {
+    if (window.scrollY >= 80) {
+      settextNav(true);
+    } else {
+      settextNav(false);
+    }
+  };
+
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
       window.addEventListener("scroll", changeNav);
+      window.addEventListener("scroll", changeText);
     }
 
     return () => {
@@ -26,26 +37,52 @@ const Navbar = () => {
     };
   }, []);
 
-  // const toggleHome = () => {
-  //   scroll.scrollToTop();
-  // };
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
 
   return (
     <Nav scrollNav={scrollNav}>
       <NavBarContainer>
-        <MainLink to="/">Indie Sweep</MainLink>
+        <MainLink onClick={toggleHome} textNav={textNav} to="/">
+          <ControllerIcon /> INDIE SWITCH
+        </MainLink>
         <NavMenu>
           <NavLink
-            to="products"
+            textNav={textNav}
+            to="info"
             smooth={true}
             duration={500}
             spy={true}
             exact="true"
             offset={-80}
           >
-            ALL GAMES
+            PORQUE INDIE
           </NavLink>
           <NavLink
+            textNav={textNav}
+            to="featured"
+            smooth={true}
+            duration={500}
+            spy={true}
+            exact="true"
+            offset={-80}
+          >
+            DESTACADO
+          </NavLink>
+          <NavLink
+            textNav={textNav}
+            to="about"
+            smooth={true}
+            duration={500}
+            spy={true}
+            exact="true"
+            offset={-80}
+          >
+            ACERCA DE
+          </NavLink>
+          <NavLink
+            textNav={textNav}
             to="products"
             smooth={true}
             duration={500}
@@ -53,7 +90,7 @@ const Navbar = () => {
             exact="true"
             offset={-80}
           >
-            ALL GAMES
+            JUEGOS
           </NavLink>
         </NavMenu>
       </NavBarContainer>
@@ -64,7 +101,7 @@ const Navbar = () => {
 export default Navbar;
 
 const Nav = styled.nav`
-  background: ${({ scrollNav }) => (scrollNav ? "#000080" : "transparent")};
+  background: ${({ scrollNav }) => (scrollNav ? "#ffffff" : "#0b2838")};
   height: 80px;
   margin-top: -80px;
   display: flex;
@@ -73,6 +110,8 @@ const Nav = styled.nav`
   top: 0;
   z-index: 10;
   position: sticky;
+  border-bottom: ${({ scrollNav }) =>
+    scrollNav ? "4px solid #cd7f32" : "3px solid #ffffff"};
 `;
 
 export const NavBarContainer = styled.div`
@@ -85,25 +124,36 @@ export const NavBarContainer = styled.div`
 `;
 
 const MainLink = styled(Link)`
-  color: #fff;
+  color: ${({ textNav }) => (textNav ? "#0b2838" : "#ffffff")};
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: 1.5rem;
-  padding: 0 1rem;
+  font-size: 1.7rem;
+  padding: 0 0.5rem;
   height: 100&;
   cursor: pointer;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: #cd7f32;
+  }
 `;
 
 const NavLink = styled(LinkS)`
-  color: #fff;
+  color: ${({ textNav }) => (textNav ? "#0b2838" : "#ffffff")};
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: 20;
+  font-size: 20px;
+  font-weight: 600;
   padding: 0 1rem;
   height: 100&;
   cursor: pointer;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: #cd7f32;
+  }
 `;
 
 const NavMenu = styled.div`
@@ -113,5 +163,14 @@ const NavMenu = styled.div`
 
   @media screen and (max-width: 768px) {
     display: none;
+  }
+`;
+
+const ControllerIcon = styled(BsController)`
+  margin-right: 10px;
+  font-size: 30px;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
   }
 `;

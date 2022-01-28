@@ -1,15 +1,19 @@
 import React from "react";
+import Indiegames from "./aboutindie";
+import About from "./aboutswitch";
+import Featured from "./featuredgame";
 import Footer from "./footer";
 import Hero from "./hero";
 import Navbar from "./navbar";
 import Products from "./products";
-import Subsection from "./subsection";
 
 const Home = () => {
   return (
     <div>
       <Hero />
-      <Subsection />
+      <Indiegames />
+      <Featured />
+      <About />
       <Products />
     </div>
   );
