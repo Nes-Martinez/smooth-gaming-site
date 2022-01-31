@@ -11,6 +11,13 @@ async function seed() {
       imageUrl: "/images/greak.jpg",
       description: "Lovely classic game with sprites.",
       price: 1499,
+      bannerImage: "/images/greakbanner.png",
+      galleryOne:
+        "https://assets.nintendo.com/image/upload/c_limit,f_auto,q_auto,w_1920/ncom/en_US/games/switch/g/greak-memories-of-azur-switch/screenshot-gallery/screenshot02?v=2021120220",
+      galleryTwo:
+        "https://assets.nintendo.com/image/upload/c_limit,f_auto,q_auto,w_1920/ncom/en_US/games/switch/g/greak-memories-of-azur-switch/screenshot-gallery/screenshot01?v=2021120220",
+      galleryThree:
+        "https://assets.nintendo.com/image/upload/c_limit,f_auto,q_auto,w_1920/ncom/en_US/games/switch/g/greak-memories-of-azur-switch/screenshot-gallery/screenshot03?v=2021120220",
       genre: ["metroidvania", "platformer"],
     }),
     Product.create({
@@ -32,6 +39,13 @@ async function seed() {
       imageUrl: "/images/hollowknight.jpg",
       description: "The pinnacle of indie gaming!",
       price: 1499,
+      bannerImage: "/images/hollowknightbanner.jpg",
+      galleryOne:
+        "https://img-eshop.cdn.nintendo.net/i/208c3efdf8bf7cb5ba1f2154f5508d97af71b7853dc8e7eff302d3b1804bb178.jpg",
+      galleryTwo:
+        "https://img-eshop.cdn.nintendo.net/i/93309648ca2cf8d7a269da8f3deb386833497d857e8344d339caf3f81fc8a2f1.jpg",
+      galleryThree:
+        "https://img-eshop.cdn.nintendo.net/i/ddcf359a6e8a2bb8b2eabf9fc26b9511b047745320c2d56aeabf24222f0967fc.jpg",
       genre: ["metroidvania", "platformer"],
     }),
     Product.create({

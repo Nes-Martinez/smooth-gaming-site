@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Image from "../images/hollowknight.jpg";
 import YoutubeVid from "./YouTubeEmbed";
 import { Link } from "react-router-dom";
 

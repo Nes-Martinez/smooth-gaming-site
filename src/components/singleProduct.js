@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { SRLWrapper } from "simple-react-lightbox";
-import image from "../images/hollowknightbanner.jpg";
 import Gamehero from "./gamehero";
+import YoutubeVid from "./YouTubeEmbed";
 
 import { getSingleProducts as listProduct } from "../redux/products";
 
@@ -28,29 +28,25 @@ const SingleProduct = () => {
 
   return (
     <ProductContainer>
-      <Gamehero image={image} name={product.name} />
+      <Gamehero image={product.bannerImage} name={product.name} />
       <div id="images">Name: {product.name}</div>
       {product.genre && <div>Genres: {product.genre.join(", ")}</div>}
       <SRLWrapper>
-        <a href="https://img-eshop.cdn.nintendo.net/i/208c3efdf8bf7cb5ba1f2154f5508d97af71b7853dc8e7eff302d3b1804bb178.jpg">
-          <img
-            src="https://img-eshop.cdn.nintendo.net/i/208c3efdf8bf7cb5ba1f2154f5508d97af71b7853dc8e7eff302d3b1804bb178.jpg"
-            alt="HK1"
-          />
+        <a href={product.galleryOne}>
+          <img src={product.galleryOne} alt="HK1" />
         </a>
-        <a href="https://img-eshop.cdn.nintendo.net/i/ddcf359a6e8a2bb8b2eabf9fc26b9511b047745320c2d56aeabf24222f0967fc.jpg">
-          <img
-            src="https://img-eshop.cdn.nintendo.net/i/ddcf359a6e8a2bb8b2eabf9fc26b9511b047745320c2d56aeabf24222f0967fc.jpg"
-            alt="HK2"
-          />
+        <a href={product.galleryTwo}>
+          <img src={product.galleryTwo} alt="HK2" />
         </a>
-        <a href="https://img-eshop.cdn.nintendo.net/i/93309648ca2cf8d7a269da8f3deb386833497d857e8344d339caf3f81fc8a2f1.jpg">
-          <img
-            src="https://img-eshop.cdn.nintendo.net/i/93309648ca2cf8d7a269da8f3deb386833497d857e8344d339caf3f81fc8a2f1.jpg"
-            alt="HK3"
-          />
+        <a href={product.galleryThree}>
+          <img src={product.galleryThree} alt="HK3" />
         </a>
       </SRLWrapper>
+      <VidWrap>
+        <Vid>
+          <YoutubeVid vidId="gicpB7w6SXo" />
+        </Vid>
+      </VidWrap>
     </ProductContainer>
   );
 };
@@ -70,4 +66,23 @@ const HeroWrapper = styled.div`
 
 const HeroContent = styled.div`
   z-index: 3;
+`;
+
+const VidWrap = styled.div`
+  max-width: 800px;
+  height: auto;
+
+  @media screen and (max-width: 768px) {
+    max-width: 600px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 300px;
+  }
+`;
+
+const Vid = styled.div`
+  margin: 0 0 10px 0;
+  padding-right: 0;
+  position: relative;
 `;

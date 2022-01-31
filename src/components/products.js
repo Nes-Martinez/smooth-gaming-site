@@ -35,12 +35,12 @@ const Products = () => {
                   alt={product.name}
                   src={product.imageUrl}
                 />
-                <ProductInfo>
-                  <TextWrap to={`/products/${product.id}`}>
-                    <ProductTitle>{product.name}</ProductTitle>
-                  </TextWrap>
-                </ProductInfo>
               </ProductImg>
+              <ProductInfo>
+                <TextWrap to={`/products/${product.id}`}>
+                  <ProductTitle>{product.name}</ProductTitle>
+                </TextWrap>
+              </ProductInfo>
             </ProductCard>
           ))}
       </ProductsWrapper>

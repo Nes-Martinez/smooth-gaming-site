@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 import { animateScroll as scroll } from "react-scroll";
 import { BsController } from "react-icons/bs";
@@ -102,6 +102,7 @@ export default Navbar;
 
 const Nav = styled.nav`
   background: ${({ scrollNav }) => (scrollNav ? "#ffffff" : "#0b2838")};
+  transition: all 0.4s ease-in-out;
   height: 80px;
   margin-top: -80px;
   display: flex;
@@ -123,7 +124,7 @@ export const NavBarContainer = styled.div`
   max-width: 1100px;
 `;
 
-const MainLink = styled(Link)`
+const MainLink = styled(LinkR)`
   color: ${({ textNav }) => (textNav ? "#0b2838" : "#ffffff")};
   display: flex;
   align-items: center;
