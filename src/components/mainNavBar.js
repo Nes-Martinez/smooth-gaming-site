@@ -5,7 +5,7 @@ import { Link as LinkS } from "react-scroll";
 import { animateScroll as scroll } from "react-scroll";
 import { BsController } from "react-icons/bs";
 
-const Navbar = () => {
+const MainNavbar = () => {
   const [scrollNav, setScrollNav] = useState(false);
   const [textNav, settextNav] = useState(false);
 
@@ -61,7 +61,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             textNav={textNav}
-            to="featured"
+            to="/products/4"
             smooth={true}
             duration={500}
             spy={true}
@@ -72,7 +72,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             textNav={textNav}
-            to="about"
+            to="/about"
             smooth={true}
             duration={500}
             spy={true}
@@ -83,7 +83,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             textNav={textNav}
-            to="products"
+            to="/products"
             smooth={true}
             duration={500}
             spy={true}
@@ -98,7 +98,7 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default MainNavbar;
 
 const Nav = styled.nav`
   background: ${({ scrollNav }) => (scrollNav ? "#ffffff" : "#0b2838")};
@@ -148,7 +148,7 @@ const MainLink = styled(LinkR)`
   }
 `;
 
-const NavLink = styled(LinkS)`
+const NavLink = styled(LinkR)`
   color: ${({ textNav }) => (textNav ? "#0b2838" : "#ffffff")};
   display: flex;
   align-items: center;

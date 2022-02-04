@@ -42,7 +42,7 @@ const About = () => {
           <RightCol>
             <VidWrap>
               <Vid>
-                <YoutubeVid vidId="4mHq6Y7JSmg" />
+                <YoutubeVid vidId="XoMEATvLpyA" />
               </Vid>
             </VidWrap>
           </RightCol>
@@ -151,8 +151,8 @@ const SubTitle = styled.p`
 `;
 
 const VidWrap = styled.div`
-  max-width: 800px;
-  height: auto;
+  padding-bottom: 56.25%;
+  height: 0;
 
   @media screen and (max-width: 768px) {
     max-width: 600px;

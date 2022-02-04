@@ -33,9 +33,9 @@ const Featured = () => {
                 to="products"
                 onMouseEnter={onHover}
                 onMouseLeave={onHover}
-                smooth={true}
+                smooth="true"
                 duration={500}
-                spy={true}
+                spy="true"
                 exact="true"
                 offset={-80}
               >

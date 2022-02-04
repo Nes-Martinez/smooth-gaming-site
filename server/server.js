@@ -1,7 +1,6 @@
 require("dotenv").config();
 const path = require("path");
 const express = require("express");
-const db = require("./config/db");
 
 const app = express();
 
@@ -15,8 +14,6 @@ app.use("/api", require("./routes"));
 
 //static file-serving middleware
 app.use(express.static(path.join(__dirname, "..", "images")));
-
-const syncDB = () => db.sync();
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`));

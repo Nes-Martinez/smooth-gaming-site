@@ -18,7 +18,7 @@ const Gamehero = ({ image, name }) => {
         <HeroItems>
           <HeroH1>{name}</HeroH1>
           <SubButton
-            to="images"
+            to="main"
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             smooth={true}
@@ -42,7 +42,7 @@ const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: clamp(10rem, 95vw, 75rem);
+  height: clamp(10rem, 55vw, 55rem);
   text-align: center;
   padding: 0 1rem;
   margin-top: -80px;
@@ -88,16 +88,20 @@ const HeroItems = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: clamp(2.5rem, 95vw, 75rem);
+  height: clamp(2.5rem, 65vw, 65rem);
   max-height: 100%;
   padding: 0;
   color: #fff;
   line-height: 1.1.%;
   font-weight: bold;
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
 `;
 
 const HeroH1 = styled.h1`
-  font-size: clamp(1.5rem, 8vw, 4.7rem);
+  font-size: clamp(1rem, 6vw, 4.7rem);
   margin-bottom: 0.3rem;
   letter-spacing: 10px;
   padding: 0 1rem;
@@ -133,7 +137,7 @@ const SubButton = styled(LinkS)`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: yellow;
+    background: #cd7f32;
     color: #ffffff;
   }
 `;

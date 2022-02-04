@@ -24,7 +24,7 @@ const Indiegames = () => {
                 juego AAA. Son desarollado con amor, con una magia única.
               </SubTitle>
               <SubButton
-                to="products"
+                to="/about"
                 onMouseEnter={onHover}
                 onMouseLeave={onHover}
                 smooth={true}

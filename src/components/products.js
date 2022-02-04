@@ -51,10 +51,9 @@ const Products = () => {
 export default Products;
 
 const ProductsContainer = styled.div`
-  padding: 2rem calc((100vw - 1300px) / 2);
+  padding: 15px 60px 60px 60px;
   color: #fff;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  margin-top: 80px;
 
   @media screen and (max-width: 768px) {
     padding: 0.1rem calc((100vw - 1300px) / 2);
