@@ -15,5 +15,4 @@ app.use("/api", require("./routes"));
 //static file-serving middleware
 app.use(express.static(path.join(__dirname, "..", "images")));
 
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
+app.listen(5000, () => console.log(`Server is running on 5000`));
