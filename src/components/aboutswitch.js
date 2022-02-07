@@ -13,7 +13,7 @@ const About = () => {
   return (
     <SectionContainer id="about">
       <SectionWrapper>
-        <SectionHeading>¿Y porqué el Switch?</SectionHeading>
+        <SectionHeading>¿Y por qué el Switch?</SectionHeading>
         <SectionRow>
           <LeftCol>
             <TextWrap>

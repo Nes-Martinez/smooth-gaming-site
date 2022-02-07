@@ -56,7 +56,7 @@ const Navbar = ({ toggle, isMain }) => {
         <NavMenu>
           {isMain ? (
             <NavLink textnav={+textnav} to="/about">
-              PORQUE INDIE
+              ¿POR QUÉ INDIE?
             </NavLink>
           ) : (
             <ScrollLink
@@ -68,7 +68,7 @@ const Navbar = ({ toggle, isMain }) => {
               exact="true"
               offset={-80}
             >
-              PORQUE INDIE
+              ¿POR QUÉ INDIE?
             </ScrollLink>
           )}
           {isMain ? (
@@ -132,6 +132,7 @@ export default Navbar;
 
 const Nav = styled.nav`
   background: ${({ scrollNav }) => (scrollNav ? "#ffffff" : "#0b2838")};
+  opacity: ${({ scrollNav }) => (scrollNav ? "80%" : "100%")};
   transition: all 0.4s ease-in-out;
   height: 80px;
   margin-top: -80px;

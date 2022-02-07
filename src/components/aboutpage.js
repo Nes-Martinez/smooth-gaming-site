@@ -51,6 +51,19 @@ const AboutPage = ({ isMain }) => {
           voluptatibus maiores alias consequatur aut perferendis doloribus
           asperiores repellat."
         </AboutText>
+        <div>
+          <SubHeading>Creditos</SubHeading>
+          <CreditText>
+            <CreditList>
+              <li>Tienda digital Nintento (descripciones, imágenes, videos)</li>
+              <li>
+                Brian Design - Canal de YouTube (inspiraciones de diseño,
+                ejemplos de coding)
+              </li>
+              <li>Plexels</li>
+            </CreditList>
+          </CreditText>
+        </div>
       </AboutWrapper>
     </AboutContainer>
   );
@@ -77,7 +90,15 @@ const AboutWrapper = styled.div`
 
 const AboutText = styled.p`
   font-size: 20px;
-  padding-top: 25px;
+  padding-top: 20px;
+`;
+
+const CreditList = styled.ul`
+  list-style: none;
+`;
+
+const CreditText = styled.p`
+  font-size: 16px;
 `;
 
 const Header = styled.p`
@@ -87,11 +108,11 @@ const Header = styled.p`
   font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
-  margin-bottom: 16px;
 `;
 
 const SubHeading = styled.h1`
   color: #0b2838;
+  margin-top: 24px;
   margin-bottom: 12px;
   font-size: 42px;
   line-height: 1.1;
