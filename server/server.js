@@ -1,6 +1,7 @@
 require("dotenv").config();
 const path = require("path");
 const express = require("express");
+const publicPath = path.join(__dirname, "..", "public");
 
 const app = express();
 
@@ -13,8 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", require("./routes"));
 
 //static file-serving middleware
-app.use("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "public/index.html"));
+app.use(express.static(publicPath));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(publicPath, "index.html"));
 });
 
 app.use(express.static(path.join(__dirname, "..", "images")));
