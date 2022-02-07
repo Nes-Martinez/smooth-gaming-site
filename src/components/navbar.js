@@ -4,94 +4,124 @@ import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 import { animateScroll as scroll } from "react-scroll";
 import { BsController } from "react-icons/bs";
+import { FaBars } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({ toggle, isMain }) => {
   const [scrollNav, setScrollNav] = useState(false);
-  const [textNav, settextNav] = useState(false);
-
-  const changeNav = () => {
-    if (window.scrollY >= 80) {
-      setScrollNav(true);
-    } else {
-      setScrollNav(false);
-    }
-  };
-
-  const changeText = () => {
-    if (window.scrollY >= 80) {
-      settextNav(true);
-    } else {
-      settextNav(false);
-    }
-  };
-
-  useEffect(() => {
-    let isMounted = true;
-    if (isMounted) {
-      window.addEventListener("scroll", changeNav);
-      window.addEventListener("scroll", changeText);
-    }
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const [textnav, settextnav] = useState(false);
 
   const toggleHome = () => {
     scroll.scrollToTop();
   };
 
+  useEffect(() => {
+    let isMounted = false;
+    if (!isMounted) {
+      const changeNav = () => {
+        if (window.scrollY >= 80) {
+          setScrollNav(true);
+        } else {
+          setScrollNav(false);
+        }
+      };
+
+      const changeText = () => {
+        if (window.scrollY >= 80) {
+          settextnav(true);
+        } else {
+          settextnav(false);
+        }
+      };
+
+      window.addEventListener("scroll", changeNav);
+      window.addEventListener("scroll", changeText);
+
+      return () => {
+        isMounted = true;
+        window.removeEventListener("scroll", changeNav);
+        window.removeEventListener("scroll", changeText);
+      };
+    }
+  }, []);
+
   return (
     <Nav scrollNav={scrollNav}>
       <NavBarContainer>
-        <MainLink onClick={toggleHome} textNav={textNav} to="/">
+        <MainLink onClick={toggleHome} textnav={+textnav} to="/">
           <ControllerIcon /> INDIE SWITCH
         </MainLink>
+        <MobileMenu onClick={toggle}>
+          <FaBars />
+        </MobileMenu>
         <NavMenu>
-          <NavLink
-            textNav={textNav}
-            to="info"
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact="true"
-            offset={-80}
-          >
-            PORQUE INDIE
-          </NavLink>
-          <NavLink
-            textNav={textNav}
-            to="featured"
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact="true"
-            offset={-80}
-          >
-            DESTACADO
-          </NavLink>
-          <NavLink
-            textNav={textNav}
-            to="about"
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact="true"
-            offset={-80}
-          >
-            ACERCA DE
-          </NavLink>
-          <NavLink
-            textNav={textNav}
-            to="products"
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact="true"
-            offset={-80}
-          >
-            JUEGOS
-          </NavLink>
+          {isMain ? (
+            <NavLink textnav={+textnav} to="/about">
+              PORQUE INDIE
+            </NavLink>
+          ) : (
+            <ScrollLink
+              textnav={+textnav}
+              to="info"
+              smooth="true"
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+            >
+              PORQUE INDIE
+            </ScrollLink>
+          )}
+          {isMain ? (
+            <NavLink textnav={+textnav} to="/products/4">
+              DESTACADO
+            </NavLink>
+          ) : (
+            <ScrollLink
+              textnav={+textnav}
+              to="featured"
+              smooth="true"
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+            >
+              DESTACADO
+            </ScrollLink>
+          )}
+          {isMain ? (
+            <NavLink textnav={+textnav} to="/about">
+              ACERCA DE
+            </NavLink>
+          ) : (
+            <ScrollLink
+              textnav={+textnav}
+              to="about"
+              smooth="true"
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+            >
+              ACERCA DE
+            </ScrollLink>
+          )}
+          {isMain ? (
+            <NavLink textnav={+textnav} to="/products">
+              VIDEOJUEGOS
+            </NavLink>
+          ) : (
+            <ScrollLink
+              textnav={+textnav}
+              to="products"
+              smooth="true"
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+            >
+              VIDEOJUEGOS
+            </ScrollLink>
+          )}
         </NavMenu>
       </NavBarContainer>
     </Nav>
@@ -109,7 +139,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   padding: 3rem calc((100vw - 1300px) / 2);
   top: 0;
-  z-index: 10;
+  z-index: 200;
   position: sticky;
   border-bottom: ${({ scrollNav }) =>
     scrollNav ? "4px solid #cd7f32" : "3px solid #ffffff"};
@@ -129,7 +159,7 @@ export const NavBarContainer = styled.div`
 `;
 
 const MainLink = styled(LinkR)`
-  color: ${({ textNav }) => (textNav ? "#0b2838" : "#ffffff")};
+  color: ${({ textnav }) => (textnav ? "#0b2838" : "#ffffff")};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -148,8 +178,45 @@ const MainLink = styled(LinkR)`
   }
 `;
 
-const NavLink = styled(LinkS)`
-  color: ${({ textNav }) => (textNav ? "#0b2838" : "#ffffff")};
+const MobileMenu = styled.div`
+  display: none;
+  color: #fff;
+  z-index: 5;
+
+  @media screen and (max-width: 786px) {
+    color: #cd7f32;
+    display: block;
+    position: absolute;
+    height: 40%;
+    align-items: center;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 75%);
+    font-size: 1.7rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+`;
+
+const ScrollLink = styled(LinkS)`
+  color: ${({ textnav }) => (textnav ? "#0b2838" : "#ffffff")};
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 0 1rem;
+  height: 100&;
+  cursor: pointer;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: #cd7f32;
+  }
+`;
+
+const NavLink = styled(LinkR)`
+  color: ${({ textnav }) => (textnav ? "#0b2838" : "#ffffff")};
   display: flex;
   align-items: center;
   text-decoration: none;

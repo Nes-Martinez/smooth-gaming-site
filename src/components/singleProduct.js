@@ -14,10 +14,11 @@ const SingleProduct = () => {
 
   const product = useSelector((state) => state.getSingleProduct);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
 
+  useEffect(() => {
     let isMounted = true;
+
     if (isMounted) {
       dispatch(listProduct(id));
     }
@@ -32,7 +33,7 @@ const SingleProduct = () => {
       <GameWrapper id="main">
         <MainBox>
           <SubHeading>Título: {product.name}</SubHeading>
-          <SubTitle>Desrollado por: {product.developer}</SubTitle>
+          <SubTitle>Desarrollado por: {product.developer}</SubTitle>
         </MainBox>
         <SubBox>
           <Header>Categorías:</Header>
@@ -140,6 +141,23 @@ const AboutText = styled.p`
   padding-bottom: 20px;
 `;
 
+const ScreensContainer = styled.div`
+  background: #f4f4f4;
+  padding: 25px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+`;
+
+const ScreensWrapper = styled.div`
+  display: grid;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
+`;
+
 const VideoWrapper = styled.div`
   padding-bottom: 56.25%;
   height: 0;
@@ -157,21 +175,4 @@ const Vid = styled.div`
   background: #f4f4f4;
   padding: 25px;
   border-radius: 5px;
-`;
-
-const ScreensContainer = styled.div`
-  background: #f4f4f4;
-  padding: 25px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  width: 100%;
-`;
-
-const ScreensWrapper = styled.div`
-  display: grid;
-  z-index: 1;
-  width: 100%;
-  max-width: 1100px;
-  margin-right: auto;
-  margin-left: auto;
 `;

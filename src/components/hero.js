@@ -19,7 +19,7 @@ const Hero = () => {
         <HeroItems>
           <HeroH1>INDIE SWITCH</HeroH1>
           <HeroH2> Una carta de amor</HeroH2>
-          <HeroP>Dedicado al sistema más inconvencional...</HeroP>
+          <HeroText>Dedicado al sistema más inconvencional...</HeroText>
           <BtnWrapper>
             <MainButton
               to="products"
@@ -128,7 +128,7 @@ const HeroH2 = styled.h2`
   text-align: right;
 `;
 
-const HeroP = styled.p`
+const HeroText = styled.p`
   font-size: clamp(1rem, 3vw, 1.5rem);
   margin-bottom: 2rem;
   font-weight: 200;

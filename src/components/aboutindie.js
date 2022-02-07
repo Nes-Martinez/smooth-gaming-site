@@ -27,11 +27,6 @@ const Indiegames = () => {
                 to="/about"
                 onMouseEnter={onHover}
                 onMouseLeave={onHover}
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
               >
                 Leér Mas
               </SubButton>

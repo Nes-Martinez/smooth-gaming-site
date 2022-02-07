@@ -5,20 +5,21 @@ import { Link } from "react-router-dom";
 
 import { getProducts as listProducts } from "../redux/products";
 
-const Products = () => {
+const Products = ({ isMain }) => {
   const dispatch = useDispatch();
-
   const products = useSelector((state) => state.getProducts);
-  //   const { products } = productDetails;
+
+  window.scrollTo(0, 0);
 
   useEffect(() => {
-    let isMounted = true;
-    if (isMounted) {
+    let isMounted = false;
+
+    if (!isMounted) {
       dispatch(listProducts());
     }
 
     return () => {
-      isMounted = false;
+      isMounted = true;
     };
   }, [dispatch]);
 
@@ -97,6 +98,10 @@ const ProductCard = styled.div`
 
   &:hover {
     transform: scale(1.03);
+  }
+
+  @media screen and (max-width: 868px) {
+    width: 85%;
   }
 `;
 

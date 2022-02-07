@@ -30,14 +30,9 @@ const Featured = () => {
                 para Nintendo Switch fue lanzada en junio de 2018.
               </SubTitle>
               <SubButton
-                to="products"
+                to="/products/4"
                 onMouseEnter={onHover}
                 onMouseLeave={onHover}
-                smooth="true"
-                duration={500}
-                spy="true"
-                exact="true"
-                offset={-80}
               >
                 Acerca De
               </SubButton>

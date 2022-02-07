@@ -4,9 +4,15 @@ import Gamehero from "./gamehero";
 
 import Image from "../images/aboutbanner.jpg";
 
-const AboutPage = () => {
+const AboutPage = ({ isMain }) => {
   useEffect(() => {
+    let isMounted = true;
     window.scrollTo(0, 0);
+    if (isMounted) {
+      return () => {
+        isMounted = false;
+      };
+    }
   }, []);
 
   return (
