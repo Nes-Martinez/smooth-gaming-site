@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.adc57a78.css",
+    "main.js": "/static/js/main.adabc327.js",
+    "static/media/videogame.mp4": "/static/media/videogame.e0afd31b93590fda77b0.mp4",
+    "static/media/aboutbanner.jpg": "/static/media/aboutbanner.e6b5b795d7d13f9517d0.jpg",
+    "static/media/greak.jpg": "/static/media/greak.36929b9f6e4e2c34e759.jpg",
+    "static/media/hollowknight.jpg": "/static/media/hollowknight.dca57ce08448a5cc4dc9.jpg",
+    "index.html": "/index.html",
+    "main.adc57a78.css.map": "/static/css/main.adc57a78.css.map",
+    "main.adabc327.js.map": "/static/js/main.adabc327.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.adc57a78.css",
+    "static/js/main.adabc327.js"
+  ]
+}
