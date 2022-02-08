@@ -15,14 +15,15 @@ app.use(cors());
 // auth and api routes
 app.use("/api", require("./routes"));
 
-//static file-serving middleware
-// app.use(express.static(path.join(__dirname, "..", "public")));
+// static file-serving middleware
+app.use(express.static(path.join(__dirname, "..", "public")));
 
-// app.use("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "..", "public/index.html"));
-// });
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "public/index.html"));
+  W;
+});
 
-// app.use(express.static(path.join(__dirname, "..", "images")));
+app.use(express.static(path.join(__dirname, "..", "images")));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
