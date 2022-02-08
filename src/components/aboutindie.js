@@ -13,7 +13,7 @@ const Indiegames = () => {
   return (
     <SectionContainer id="info">
       <SectionWrapper>
-        <SectionHeading>Videojuegos Indie</SectionHeading>
+        <SectionHeading>Videojuegos Indie Max</SectionHeading>
         <SectionRow>
           <LeftCol>
             <TextWrap>
