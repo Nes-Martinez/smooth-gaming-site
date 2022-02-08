@@ -13,7 +13,7 @@ server.use(bodyParser.json());
 server.use(cors());
 
 // auth and api routes
-server.use("/api", require("./routes"));
+server.use("/api", require("./server/routes"));
 
 // static file-serving middleware
 server.use(express.static(path.join(__dirname, "build")));
