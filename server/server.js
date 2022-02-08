@@ -18,9 +18,8 @@ app.use("/api", require("./routes"));
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, "..", "public")));
 
-app.use("*", (req, res) => {
+app.use("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public/index.html"));
-  W;
 });
 
 app.use(express.static(path.join(__dirname, "..", "images")));
