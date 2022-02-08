@@ -16,10 +16,10 @@ server.use(cors());
 server.use("/api", require("./routes"));
 
 // static file-serving middleware
-server.use(express.static(path.join(__dirname, "build")));
+server.use(express.static(path.join(__dirname, "public")));
 
 server.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
