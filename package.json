@@ -32,7 +32,6 @@
   },
   "scripts": {
     "start": "node server/server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build",
     "server": "node server/server.js",
     "dev": "concurrently \"npm run server\" \"PORT=3000 react-scripts start\"",
     "build": "react-scripts build",
