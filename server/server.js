@@ -4,31 +4,23 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const app = express();
+const server = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 
-app.use(bodyParser.json());
-app.use(cors());
+server.use(bodyParser.json());
+server.use(cors());
 
 // auth and api routes
-app.use("/api", require("./routes"));
+server.use("/api", require("./routes"));
 
 // static file-serving middleware
-app.use(express.static(path.join(__dirname, "..", "public")));
+server.use(express.static(path.join(__dirname, "build")));
 
-app.use("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "public/index.html"));
+server.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-
-app.use((err, req, res, next) => {
-  console.error(err);
-  console.error(err.stack);
-  res.status(err.status || 500).send(err.message || "Internal server error.");
-});
-
-app.use(express.static(path.join(__dirname, "..", "images")));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
+server.listen(PORT, () => console.log(`Server is running on ${PORT}`));
