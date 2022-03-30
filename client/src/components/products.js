@@ -149,7 +149,7 @@ const ProductInfo = styled.div`
   }
 `;
 
-const ProductTitle = styled.div`
+const ProductTitle = styled.div` 
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
