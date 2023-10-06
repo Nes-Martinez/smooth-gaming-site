@@ -18,7 +18,7 @@ const Hero = () => {
       <HeroContent>
         <HeroItems>
           <HeroH1>INDIE SWITCH</HeroH1>
-          <HeroH2> Una carta de amor</HeroH2>
+          <HeroH2> Una declaracion de amor</HeroH2>
           <HeroText>Dedicado al sistema más inconvencional...</HeroText>
           <BtnWrapper>
             <MainButton
